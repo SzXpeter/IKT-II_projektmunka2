@@ -57,3 +57,28 @@ def rendelesek_beiras(filename):
             r.darab
         ))
     file.close()
+
+
+def beolvasas():
+    polc_beolvasas('polcok.csv')
+    eladas_beolvasas('eladasok.csv')
+    rendeles_beolvasas('rendelesek.csv')
+
+def mentes():
+    polc_beiras('polcok.csv')
+    eladas_beiras('eladasok.csv')
+    rendelesek_beiras('rendelesek.csv')
+
+def uj_termek(termeknev: str, db: int):
+    i = 0
+    while i < len(polcok) and polcok[i].termeknev != '':
+        i += 1 
+
+    if i < len(polcok):
+        p = polcok[i] 
+    else:
+        print('Nincs üres polc a raktárokban.')
+        return
+    
+    p.termeknev = termeknev
+    p.darab = db
