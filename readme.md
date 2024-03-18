@@ -51,3 +51,11 @@
         - Rendelés leadáshoz bekért adatok:
             - Terméknév
             - Darabszám
+
+    ### Main.py
+
+    - Menü
+        - Összes function behívása menüpontként
+        - Számbekérés function -> számbekérés ellenőrzéssel
+    - Statisztika
+        - Statisztika készítése az eladásokról (hány termék, honnan)
