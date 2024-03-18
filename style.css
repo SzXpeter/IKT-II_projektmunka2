@@ -6,3 +6,48 @@
     background-color: #1a1a1a;
 }
 
+.logo {
+    width: 15rem;
+    margin-top: -4rem;
+    margin-bottom: -4rem;
+}
+
+.welcome-title {
+    margin-top: 10vh;
+    text-align: center;
+}
+
+.welcome-title_2 {
+    text-align: center;
+
+}
+
+.welcome-pic {
+    object-fit: cover;
+    width: 100%;
+    height: 25rem;
+    object-position: center 60%;
+}
+
+.card{
+    margin-top: 5rem;
+}
+
+.card-img-top{
+    -webkit-filter: brightness(70%);
+}
+
+.card-img-top:hover{
+    -webkit-filter: brightness(100%);
+    transition: .5s;
+}
+
+.kep_szoveg{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: aliceblue;
+    font-size: 220%;
+
+}
