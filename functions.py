@@ -72,13 +72,51 @@ def mentes():
 def uj_termek(termeknev: str, db: int):
     i = 0
     while i < len(polcok) and polcok[i].termeknev != '':
-        i += 1 
+        if polcok[i].termeknev == termeknev:
+            print('\nMár van ilyen termék.')
+            input('<ENTER>')
+            return
+        i += 1
 
     if i < len(polcok):
-        p = polcok[i] 
+        p = polcok[i]
     else:
-        print('Nincs üres polc a raktárokban.')
+        print('\nNincs üres polc a raktárokban.')
+        input('<ENTER>')
         return
-    
+
     p.termeknev = termeknev
     p.darab = db
+    print('\nA termék fel lett véve.')
+    input('<ENTER>')
+
+def eladas(termeknev: str, db: int):
+    i = 0
+    while i < len(polcok) and polcok[i].termeknev != termeknev:
+        i += 1
+    if i >= len(polcok):    #Hamis eset
+        print('\nIlyen terméket nem találtunk.')
+        input('<ENTER>')
+    else:
+        polc: Polc = polcok[i]
+        if polc.darab < db:
+            print('\nNincs ennyi termék a polcon.')
+            input('<ENTER>')
+        else:
+            polc.darab -= db
+            print('\nA terméket sikeresen eladtuk.')
+            input('<ENTER>')
+
+def termek_torles(termeknev:str):
+    i = 0
+    while i < len(polcok) and polcok[i].termeknev != termeknev:
+        i += 1
+    
+    if i < len(polcok):
+        polcok[i].termeknev = ''
+        polcok[i].darab = 0
+        print('\nA termék sikeresen törölve lett.')
+        input('<ENTER>')
+    else:
+        print('\nNincs ilyen termék.')
+        input('<ENTER>')

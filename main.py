@@ -12,27 +12,45 @@ def menu_valasztas():
         system('cls')
         print('Menüpontok:')
         print('\t1..Új termék hozzáadása')
+        print('\t2..Termék eladása')
+        print('\t3..Termék törlése')
         
         print('\t6..Mentés a fájlba')
         
         print('\n\t0..Kilépés')
-        m = input('Menüpont: ')
+        m = input('\nMenüpont: ')
         match m:
             case '1':
                 system('cls')
                 print('Termék hozzáadása')
-                tn = input('\n\tKérem a termék nevét: ')
-                szam = False
-                while szam == False:
-                    try:
-                        szam = True
-                        db = int(input('\tTermék darabszáma: '))
-                    except:
-                        szam = False
+                tn = input('\n\tKérem az új termék nevét: ')
+                db = szam_bekeres('\tTermék induló darabszáma: ')
                 uj_termek(tn, db)
+            case '2':
+                system('cls')
+                print('Termék eladása')
+                tn = input('\n\tKérem az eladandó termék nevét: ')
+                db = szam_bekeres('\tEladni kívánt darabszám: ')
+                eladas(tn, db)
+
+            case '3':
+                system("cls")
+                print("Termék törlése")
+                tn = input("\n\tKérem a törölni kívánt termék nevét: ")
+                termek_torles(tn)
 
             case '6':
                 mentes()
     mentes()
+
+def szam_bekeres(kiiras_db: str) -> int:
+    szam = False
+    while szam == False:
+        try:
+            szam = True
+            db = int(input(kiiras_db))
+        except:
+            szam = False
+    return db
 
 main()
