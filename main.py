@@ -14,10 +14,11 @@ def menu_valasztas():
         print('\t1..Új termék hozzáadása')
         print('\t2..Termék eladása')
         print('\t3..Termék törlése')
+        print('\t4..Keresés')
         
         print('\t6..Mentés a fájlba')
-        
         print('\n\t0..Kilépés')
+
         m = input('\nMenüpont: ')
         match m:
             case '1':
@@ -26,6 +27,7 @@ def menu_valasztas():
                 tn = input('\n\tKérem az új termék nevét: ')
                 db = szam_bekeres('\tTermék induló darabszáma: ')
                 uj_termek(tn, db)
+
             case '2':
                 system('cls')
                 print('Termék eladása')
@@ -34,10 +36,34 @@ def menu_valasztas():
                 eladas(tn, db)
 
             case '3':
-                system("cls")
-                print("Termék törlése")
-                tn = input("\n\tKérem a törölni kívánt termék nevét: ")
+                system('cls')
+                print('Termék törlése')
+                tn = input('\n\tKérem a törölni kívánt termék nevét: ')
                 termek_torles(tn)
+
+            case '4':
+                system('cls')
+                print('Termék/Polc keresése')
+                
+                m = ''
+                while m != '1' and m != '2':
+                    print('\t1..Termék keresése')
+                    print('\t2..Polc keresése')
+                    m = input('Menüpont: ')
+                
+                match m:
+                    case '1':
+                        system('cls')
+                        print('Termék keresése')
+                        tn = input('\n\tKérem a keresett termék nevét: ')
+                        termek_kereses(tn)
+                    case '2':
+                        system('cls')
+                        print('Polc keresése')
+                        raktar = input('Kérem a raktár számát: ')
+                        polc = input('Kérem a polc számát: ')
+                        polc_kereses(raktar, polc)
+                
 
             case '6':
                 mentes()

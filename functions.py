@@ -58,7 +58,6 @@ def rendelesek_beiras(filename):
         ))
     file.close()
 
-
 def beolvasas():
     polc_beolvasas('polcok.csv')
     eladas_beolvasas('eladasok.csv')
@@ -94,16 +93,19 @@ def eladas(termeknev: str, db: int):
     i = 0
     while i < len(polcok) and polcok[i].termeknev != termeknev:
         i += 1
+
     if i >= len(polcok):    #Hamis eset
         print('\nIlyen terméket nem találtunk.')
         input('<ENTER>')
     else:
         polc: Polc = polcok[i]
+
         if polc.darab < db:
             print('\nNincs ennyi termék a polcon.')
             input('<ENTER>')
         else:
             polc.darab -= db
+            eladasok.append(f'{polc.termeknev};{polc.raktar};{db}')
             print('\nA terméket sikeresen eladtuk.')
             input('<ENTER>')
 
@@ -119,4 +121,34 @@ def termek_torles(termeknev:str):
         input('<ENTER>')
     else:
         print('\nNincs ilyen termék.')
+        input('<ENTER>')
+
+def termek_kereses(termek: str):
+    i = 0
+    while i < len(polcok) and polcok[i].termeknev != termek:
+        i += 1
+    if i >= len(polcok):
+        print('\nA termék nem létezik vagy nincs raktáron.')
+        input('<ENTER>')
+    else:
+        print(f'A(z) {termek} termék:\n'
+              f'\tA(z) {polcok[i].raktar}. raktárban,\n'
+              f'\tA(z) {polcok[i].polc}. polcon található.\n'
+              f'\tRaktáron lévő darabszám: {polcok[i].darab}')
+        input('<ENTER>')
+
+def polc_kereses(raktar, polc):
+    i = 0
+    while i < len(polcok) and (polcok[i].raktar != raktar or polcok[i].polc != polc):
+        i += 1
+
+    if i < len(polcok):
+        print(f'A(z) {raktar}. számú raktár {polc}. polcán a következő termék található:')
+        print('\t{0}\n\t{1}'.format(
+            f'Név: {polcok[i].termeknev}',
+            f'Raktáron lévő darabszám: {polcok[i].darab}'
+        ))
+        input('<ENTER>')
+    else:
+        print('\nNem találtunk ilyen polcot.')
         input('<ENTER>')
