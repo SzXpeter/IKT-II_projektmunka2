@@ -107,7 +107,7 @@ def eladas(termeknev: str, db: int):
             input('<ENTER>')
         else:
             polc.darab -= db
-            eladasok.append(f'{polc.termeknev};{polc.raktar};{db}')
+            eladasok.append(Eladas(f'{polc.termeknev};{polc.raktar};{db}'))
             print('\nA terméket sikeresen eladtuk.')
             input('<ENTER>')
 
@@ -177,10 +177,8 @@ def rendeles_teljesites():
         return
     
     for r in rendelesek:
-        i = 0
-        while r.termeknev != polcok[i].termeknev:
-            i += 1
-        polcok[i].darab += r.darab
+        polc_szam = ((r.raktar - 1) * 15 + r.polc) - 1
+        polcok[polc_szam].darab += r.darab
         print(f'\tA(z) {r.termeknev} termék rendelése {r.darab} darabszámra teljesítve.')
         print('\nA rendelések teljesítve lettek.')
 
@@ -188,3 +186,13 @@ def rendeles_teljesites():
         mentes()
         input('<ENTER>')
 
+def fajl_urites():
+    for p in polcok:
+        p.termeknev = ''
+        p.darab = 0
+    eladasok.clear()
+    rendelesek.clear()
+
+    mentes()
+    print('\nA fájlok ürítve lettek.')
+    input('<ENTER>')

@@ -17,7 +17,8 @@ def menu_valasztas():
         print('\t4..Keresés')
         print('\t5..Rendelés leadása/teljesítése')
         
-        print('\t7..Mentés a fájlba')
+        print('\t7..Fájlok ürítése')
+        print('\t8..Mentés a fájlba')
         print('\n\t0..Kilépés')
 
         m = input('\nMenüpont: ')
@@ -71,7 +72,7 @@ def menu_valasztas():
 
                 m = ''
                 while m != '1' and m != '2':
-                    print('\t1..Rendelés leadása')
+                    print('\n\t1..Rendelés leadása')
                     print('\t2..Rendelés teljesítése')
                     m = input('\nMenüpont: ')
                 
@@ -87,7 +88,11 @@ def menu_valasztas():
                         print('Rendelés teljesítése\n')
                         rendeles_teljesites()
 
-            case '6':
+            case '7':
+                system('cls')
+                print('Fájl ürítés')
+                fajl_urites()
+            case '8':
                 mentes()
     mentes()
 

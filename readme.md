@@ -51,6 +51,7 @@
         - Rendelés leadáshoz bekért adatok:
             - Terméknév
             - Darabszám
+- Fájlok alaphelyzetbe állítása
 - Raktáron lévő termékek listázása
 
     ### Main.py
