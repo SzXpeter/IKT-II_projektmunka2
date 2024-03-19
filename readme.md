@@ -51,6 +51,7 @@
         - Rendelés leadáshoz bekért adatok:
             - Terméknév
             - Darabszám
+- Raktáron lévő termékek listázása
 
     ### Main.py
 
