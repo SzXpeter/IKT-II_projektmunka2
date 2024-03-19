@@ -66,3 +66,20 @@
     position: sticky;
     top: 100%;
 }
+
+.profiles{
+    margin-left: 25rem;
+    margin-right: 25rem;
+    margin-bottom: 5rem;
+}
+
+.profile{
+    margin-right: 7rem;
+    margin-left: 7rem;
+}
+
+@media (max-width: 760px){
+    .profiles{
+        margin: 3.7rem;
+    }
+}
