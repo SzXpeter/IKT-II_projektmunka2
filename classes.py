@@ -20,4 +20,6 @@ class Rendeles:
     def __init__(self, row:str):
         data = row.strip().split(';')
         self.termeknev = data[0]
-        self.darab = data[1]
+        self.darab = int(data[1])
+        self.raktar = data[2]
+        self.polc = data[3]

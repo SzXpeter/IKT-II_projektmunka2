@@ -50,11 +50,13 @@ def eladas_beiras(filename):
 
 def rendelesek_beiras(filename):
     file = open(filename, 'w', encoding="utf-8")
-    file.write("Név;Darabszám\n")
+    file.write("Név;Darabszám;Raktár;Polc\n")
     for r in rendelesek:
-        file.write("{0};{1}\n".format(
+        file.write("{0};{1};{2};{3}\n".format(
             r.termeknev,
-            r.darab
+            r.darab,
+            r.raktar,
+            r.polc
         ))
     file.close()
 
@@ -152,3 +154,37 @@ def polc_kereses(raktar, polc):
     else:
         print('\nNem találtunk ilyen polcot.')
         input('<ENTER>')
+
+def rendeles_leadas(termeknev: str, darab: int):
+    i = 0
+    while i < len(polcok) and polcok[i].termeknev != termeknev:
+        i += 1
+    
+    if i < len(polcok):
+        rendelesek.append(Rendeles(f'{termeknev};{darab};{polcok[i].raktar};{polcok[i].polc}'))
+        print('A rendelés sikeresen leadva.')
+        input('<ENTER>')
+    else:
+        print('Nincs ilyen termékünk')
+        input('<ENTER>')
+
+    
+
+def rendeles_teljesites():
+    if len(rendelesek) == 0:
+        print('Nincs leadott rendelés.')
+        input('<ENTER>')
+        return
+    
+    for r in rendelesek:
+        i = 0
+        while r.termeknev != polcok[i].termeknev:
+            i += 1
+        polcok[i].darab += r.darab
+        print(f'\tA(z) {r.termeknev} termék rendelése {r.darab} darabszámra teljesítve.')
+        print('\nA rendelések teljesítve lettek.')
+
+        rendelesek.clear()
+        mentes()
+        input('<ENTER>')
+

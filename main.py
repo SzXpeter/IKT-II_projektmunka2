@@ -15,8 +15,9 @@ def menu_valasztas():
         print('\t2..Termék eladása')
         print('\t3..Termék törlése')
         print('\t4..Keresés')
+        print('\t5..Rendelés leadása/teljesítése')
         
-        print('\t6..Mentés a fájlba')
+        print('\t7..Mentés a fájlba')
         print('\n\t0..Kilépés')
 
         m = input('\nMenüpont: ')
@@ -63,7 +64,28 @@ def menu_valasztas():
                         raktar = input('Kérem a raktár számát: ')
                         polc = input('Kérem a polc számát: ')
                         polc_kereses(raktar, polc)
+
+            case '5':
+                system('cls')
+                print('Rendelés leadása/teljesítése')
+
+                m = ''
+                while m != '1' and m != '2':
+                    print('\t1..Rendelés leadása')
+                    print('\t2..Rendelés teljesítése')
+                    m = input('\nMenüpont: ')
                 
+                match m:
+                    case '1':
+                        system('cls')
+                        print('Rendelés leadás')
+                        tn = input('\n\tKérem a rendelni kívánt termék nevét: ')
+                        db = szam_bekeres('\tRendelni kívánt darabszám: ')
+                        rendeles_leadas(tn, db)
+                    case '2':
+                        system('cls')
+                        print('Rendelés teljesítése\n')
+                        rendeles_teljesites()
 
             case '6':
                 mentes()
