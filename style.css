@@ -1,5 +1,6 @@
 .navbar-nav {
     margin-left: auto;
+    background-color: #1a1a1a;
 }
 
 .body {
@@ -31,6 +32,10 @@
 
 .card{
     margin-top: 5rem;
+    margin-bottom: 5rem;
+    margin-left: -1px;
+    margin-right: -1px;
+    border: none;
 }
 
 .card-img-top{
@@ -50,4 +55,14 @@
     color: aliceblue;
     font-size: 220%;
 
+}
+
+
+.footer{
+    background-color: #1a1a1a;
+    text-align: center;
+    color: aliceblue;
+    padding: .6rem;
+    position: sticky;
+    top: 100%;
 }
