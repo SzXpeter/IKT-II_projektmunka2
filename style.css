@@ -1,3 +1,10 @@
+@font-face{
+    font-family: dhlfont;
+    src: url("dhlfont.otf");
+}
+
+
+
 .navbar-nav {
     margin-left: auto;
     background-color: #1a1a1a;
@@ -5,6 +12,7 @@
 
 .body {
     background-color: #1a1a1a;
+    font-family: "dhlfont" !important;
 }
 
 .logo {
@@ -68,24 +76,10 @@
 }
 
 .profiles{
-    margin-left: 25rem;
-    margin-right: 25rem;
     margin-bottom: 5rem;
 }
 
-.profile{
-    margin-right: 7rem;
-    margin-left: 7rem;
-}
 
-@media (max-width: 760px){
-    .profiles{
-        margin: auto;
-        margin-top: 4rem;
-    }
-
-    .profile{
-        margin: auto;
-        margin-top: 2rem;
-    }
+.col-lg-4 img {
+    width: 100%;
 }
