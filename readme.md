@@ -54,10 +54,10 @@
 - Fájlok alaphelyzetbe állítása
 - Raktáron lévő termékek listázása
 
-    ### Main.py
+### Main.py
 
-    - Menü
-        - Összes function behívása menüpontként
-        - Számbekérés function -> számbekérés ellenőrzéssel
-    - Statisztika
-        - Statisztika készítése az eladásokról (hány termék, honnan)
+- Menü
+    - Összes function behívása menüpontként
+    - Számbekérés function -> számbekérés ellenőrzéssel
+- Statisztika
+    - Statisztika készítése az eladásokról (hány termék, honnan)
