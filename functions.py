@@ -204,3 +204,28 @@ def polc_listazas():
 
     print('\nAz összes telített polc listázva')
     input('<ENTER>')
+
+def raktar_statisztika():
+    stat = dict()
+    for e in eladasok:
+        if e.raktar in stat.keys():
+            stat[e.raktar] += e.eladasok_szama
+        else:
+            stat[e.raktar] = e.eladasok_szama
+
+    for k, v in stat.items():
+        print(f'\t{k}. raktár: {v} eladás')
+    input('\n<ENTER>')
+
+def legeladott_termek():
+    stat = dict()
+    for e in eladasok:
+        if e.termeknev in stat.keys():
+            stat[e.termeknev] += e.eladasok_szama
+        else:
+            stat[e.termeknev] = e.eladasok_szama
+
+    for k, v in stat.items():
+        print(f'\t{k}. termék: {v} eladás')
+
+    input('\n<ENTER>')

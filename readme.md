@@ -63,6 +63,6 @@
     - Statisztika készítése az eladásokról (hány termék, honnan)
     - Típusok:
         - Raktárak szerinti csoportosítás
-        - 5 leggyakrabban eladásra használt polc
+        - *<s>5 leggyakrabban eladásra használt polc</s>*
         - 5 legtöbbet eladott termék
         - Összes eladott termékszám
