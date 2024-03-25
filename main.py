@@ -16,6 +16,7 @@ def menu_valasztas():
         print('\t3..Termék törlése')
         print('\t4..Keresés')
         print('\t5..Rendelés leadása/teljesítése')
+        print('\t6..Polcok listázása')
         
         print('\t7..Fájlok ürítése')
         print('\t8..Mentés a fájlba')
@@ -87,6 +88,11 @@ def menu_valasztas():
                         system('cls')
                         print('Rendelés teljesítése\n')
                         rendeles_teljesites()
+
+            case '6':
+                system('cls')
+                print('Polcok listázása\n')
+                polc_listazas()
 
             case '7':
                 system('cls')

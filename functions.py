@@ -196,3 +196,11 @@ def fajl_urites():
     mentes()
     print('\nA fájlok ürítve lettek.')
     input('<ENTER>')
+
+def polc_listazas():
+    for p in polcok:
+        if p.termeknev != '':
+            print(f"\t{p.raktar}. raktár, {p.polc}. polc, {p.termeknev}: {p.darab} db")
+
+    print('\nAz összes telített polc listázva')
+    input('<ENTER>')
