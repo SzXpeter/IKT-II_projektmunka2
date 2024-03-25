@@ -61,3 +61,8 @@
     - Számbekérés function -> számbekérés ellenőrzéssel
 - Statisztika
     - Statisztika készítése az eladásokról (hány termék, honnan)
+    - Típusok:
+        - Raktárak szerinti csoportosítás
+        - *<s>5 leggyakrabban eladásra használt polc</s>*
+        - 5 legtöbbet eladott termék
+        - Összes eladott termékszám
