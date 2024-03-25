@@ -3,8 +3,6 @@
     src: url("dhlfont.otf");
 }
 
-
-
 .navbar-nav {
     margin-left: auto;
     background-color: #1a1a1a;
@@ -28,7 +26,6 @@
 
 .welcome-title_2 {
     text-align: center;
-
 }
 
 .welcome-pic {
@@ -46,14 +43,14 @@
     border: none;
 }
 
-.card-img-top{
+/* .card-img-top{
     -webkit-filter: brightness(70%);
 }
 
 .card-img-top:hover{
     -webkit-filter: brightness(100%);
     transition: .5s;
-}
+} */
 
 .kep_szoveg{
     position: absolute;
@@ -64,7 +61,6 @@
     font-size: 220%;
 
 }
-
 
 .footer{
     background-color: #1a1a1a;
@@ -78,7 +74,6 @@
 .profiles{
     margin-bottom: 5rem;
 }
-
 
 .col-lg-4 img {
     width: 100%;
