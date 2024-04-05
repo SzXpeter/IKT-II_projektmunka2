@@ -52,10 +52,10 @@ def menu_valasztas():
                     system('cls')
                     print('Termék/Polc keresése')
 
-                    print('\t1..Termék keresése')
+                    print('\n\t1..Termék keresése')
                     print('\t2..Polc keresése')
 
-                    m = input('Menüpont: ')
+                    m = input('\nMenüpont: ')
                 
                 match m:
                     case '1':
@@ -102,43 +102,27 @@ def menu_valasztas():
                 polc_listazas()
 
             case '7':
+                system('cls')
                 
-                m = ''
-                while m != '0' and m != '1' and m != '2' and m != '3':
-                    system('cls')
-                    print('Eladások statisztika')
-                    
-                    print('\n\t1..Raktárok statisztikája')
-                    print('\t2..Termék eladások')
-                    print('\t3..Összes eladott termékszám')
+                raktar_statisztika()
+                print()
 
-                    print('\n\t0..Vissza')
+                legeladott_termek()
+                print()
 
-                    m = input('\nMenüpont: ')
-
-                match m:
-                    case '0':
-                        pass
-                    case '1':
-                        system('cls')
-                        print('Raktár statisztika\n')
-                        raktar_statisztika()
-                    case '2':
-                        system('cls')
-                        print('Termék eladások')
-                        legeladott_termek()
-                    case '3':
-                        system('cls')
-                        print('Összes eladott termékszám')
-                        # osszes_eladott()
-
-
-                    
+                osszes_eladott()
+                input('\n<ENTER>')
 
             case '8':
                 system('cls')
                 print('Fájl ürítés')
-                fajl_urites()
+                print('\n\tBiztosan űríti a fájlokat?')
+                v = input('\tIgen/Nem: ')
+                if v == 'Igen' or v == 'i' or v == 'y':
+                    fajl_urites()
+                else:
+                    print('\nA fájlok nem törlődtek.')
+                    input('<ENTEr>')
             case '9':
                 mentes()
     mentes()

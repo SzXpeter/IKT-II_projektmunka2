@@ -133,7 +133,7 @@ def termek_kereses(termek: str):
         print('\nA termék nem létezik vagy nincs raktáron.')
         input('<ENTER>')
     else:
-        print(f'A(z) {termek} termék:\n'
+        print(f'\nA(z) {termek} termék:\n'
               f'\tA(z) {polcok[i].raktar}. raktárban,\n'
               f'\tA(z) {polcok[i].polc}. polcon található.\n'
               f'\tRaktáron lévő darabszám: {polcok[i].darab}')
@@ -177,7 +177,7 @@ def rendeles_teljesites():
         return
     
     for r in rendelesek:
-        polc_szam = ((r.raktar - 1) * 15 + r.polc) - 1
+        polc_szam = ((int(r.raktar) - 1) * 15 + int(r.polc)) - 1
         polcok[polc_szam].darab += r.darab
         print(f'\tA(z) {r.termeknev} termék rendelése {r.darab} darabszámra teljesítve.')
         print('\nA rendelések teljesítve lettek.')
@@ -206,6 +206,7 @@ def polc_listazas():
     input('<ENTER>')
 
 def raktar_statisztika():
+    print('Raktár statisztika')
     stat = dict()
     for e in eladasok:
         if e.raktar in stat.keys():
@@ -213,11 +214,25 @@ def raktar_statisztika():
         else:
             stat[e.raktar] = e.eladasok_szama
 
-    for k, v in stat.items():
-        print(f'\t{k}. raktár: {v} eladás')
-    input('\n<ENTER>')
+    #for k, v in stat.items():
+    #    print(f'\tLegtöbbször használt raktár eladásokra: {k}. raktár - {v} eladás')
+
+    raktar_szamok: list[str] = []
+    for k in stat.keys():
+        raktar_szamok.append(k)
+
+    max = stat[raktar_szamok[0]]
+    max_szam = raktar_szamok[0]
+    for rsz in raktar_szamok:
+        if stat[rsz] > max:
+            max = stat[rsz]
+            max_nev = rsz
+                
+    print(f'\tLegeladottabb termék: {max_nev} - {max} db.')
+    
 
 def legeladott_termek():
+    print('Legeladottabb termék')
     stat = dict()
     for e in eladasok:
         if e.termeknev in stat.keys():
@@ -225,7 +240,27 @@ def legeladott_termek():
         else:
             stat[e.termeknev] = e.eladasok_szama
 
-    for k, v in stat.items():
-        print(f'\t{k}. termék: {v} eladás')
+    termek_nevek: list[str] = []
+    for k in stat.keys():
+        termek_nevek.append(k)
 
-    input('\n<ENTER>')
+    if len(termek_nevek) != 0:
+        max = stat[termek_nevek[0]]
+        max_nev = termek_nevek[0]
+        for tn in termek_nevek:
+            if stat[tn] > max:
+                max = stat[tn]
+                max_nev = tn
+                
+        print(f'\tLegeladottabb termék: {max_nev} - {max} db.')
+    
+    else:
+        print('\tNincs még eladott termék.')
+
+def osszes_eladott():
+    print('Összes eladott termékszám')
+    db = 0
+    for e in eladasok:
+        db += e.eladasok_szama
+    
+    print(f'\tÖsszes eladott termékszám: {db}')
