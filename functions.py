@@ -133,7 +133,7 @@ def termek_kereses(termek: str):
         print('\nA termék nem létezik vagy nincs raktáron.')
         input('<ENTER>')
     else:
-        print(f'A(z) {termek} termék:\n'
+        print(f'\nA(z) {termek} termék:\n'
               f'\tA(z) {polcok[i].raktar}. raktárban,\n'
               f'\tA(z) {polcok[i].polc}. polcon található.\n'
               f'\tRaktáron lévő darabszám: {polcok[i].darab}')
@@ -177,7 +177,7 @@ def rendeles_teljesites():
         return
     
     for r in rendelesek:
-        polc_szam = ((r.raktar - 1) * 15 + r.polc) - 1
+        polc_szam = ((int(r.raktar) - 1) * 15 + int(r.polc)) - 1
         polcok[polc_szam].darab += r.darab
         print(f'\tA(z) {r.termeknev} termék rendelése {r.darab} darabszámra teljesítve.')
         print('\nA rendelések teljesítve lettek.')
@@ -227,8 +227,6 @@ def legeladott_termek():
         else:
             stat[e.termeknev] = e.eladasok_szama
 
-    #for k, v in stat.items():
-    #    print(f'\t{k}. termék: {v} eladás')
     termek_nevek: list[str] = []
     for k in stat.keys():
         termek_nevek.append(k)
@@ -241,11 +239,10 @@ def legeladott_termek():
                 max = stat[tn]
                 max_nev = tn
                 
-
         print(f'\tLegeladottabb termék: {max_nev} - {max} db.')
     
     else:
-        print('Nincs még eladott termék')
+        print('\tNincs még eladott termék.')
 
 def osszes_eladott():
     print('Összes eladott termékszám')

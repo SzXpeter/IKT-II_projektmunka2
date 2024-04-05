@@ -52,10 +52,10 @@ def menu_valasztas():
                     system('cls')
                     print('Termék/Polc keresése')
 
-                    print('\t1..Termék keresése')
+                    print('\n\t1..Termék keresése')
                     print('\t2..Polc keresése')
 
-                    m = input('Menüpont: ')
+                    m = input('\nMenüpont: ')
                 
                 match m:
                     case '1':
@@ -116,7 +116,13 @@ def menu_valasztas():
             case '8':
                 system('cls')
                 print('Fájl ürítés')
-                fajl_urites()
+                print('\n\tBiztosan űríti a fájlokat?')
+                v = input('\tIgen/Nem: ')
+                if v == 'Igen' or v == 'i' or v == 'y':
+                    fajl_urites()
+                else:
+                    print('\nA fájlok nem törlődtek.')
+                    input('<ENTEr>')
             case '9':
                 mentes()
     mentes()
