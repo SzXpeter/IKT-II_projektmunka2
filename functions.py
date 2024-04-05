@@ -214,8 +214,21 @@ def raktar_statisztika():
         else:
             stat[e.raktar] = e.eladasok_szama
 
-    for k, v in stat.items():
-        print(f'\tLegtöbbször használt raktár eladásokra: {k}. raktár - {v} eladás')
+    #for k, v in stat.items():
+    #    print(f'\tLegtöbbször használt raktár eladásokra: {k}. raktár - {v} eladás')
+
+    raktar_szamok: list[str] = []
+    for k in stat.keys():
+        raktar_szamok.append(k)
+
+    max = stat[raktar_szamok[0]]
+    max_szam = raktar_szamok[0]
+    for rsz in raktar_szamok:
+        if stat[rsz] > max:
+            max = stat[rsz]
+            max_nev = rsz
+                
+    print(f'\tLegeladottabb termék: {max_nev} - {max} db.')
     
 
 def legeladott_termek():
