@@ -228,7 +228,7 @@ def raktar_statisztika():
             max = stat[rsz]
             max_nev = rsz
                 
-    print(f'\tLegeladottabb termék: {max_nev} - {max} db.')
+    print(f'\tLeghasználtabb raktár: {max_nev} - {max} db.')
     
 
 def legeladott_termek():
